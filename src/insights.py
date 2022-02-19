@@ -36,7 +36,10 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
+    filtred_jobs = list(
+        filter(lambda job: job['job_type'] == job_type, jobs)
+    )
+    return filtred_jobs
 
 
 def get_unique_industries(path):
