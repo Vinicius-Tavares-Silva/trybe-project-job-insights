@@ -78,7 +78,10 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    filtred_jobs = list(
+        filter(lambda job: job['industry'] == industry, jobs)
+    )
+    return filtred_jobs
 
 
 def get_max_salary(path):
