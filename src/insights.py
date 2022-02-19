@@ -93,7 +93,15 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    jobs_list = read(path)
+    max_salary_list = list(set([job['max_salary'] for job in jobs_list]))
+    max_salary_list = list(filter(None, max_salary_list))
+    max_salary_list = list(
+        filter(lambda salary: salary != 'invalid', max_salary_list)
+    )
+    max_salary_list = list(map(int, max_salary_list))
+    max_salary = max(max_salary_list)
+    return max_salary
 
 
 def get_min_salary(path):
