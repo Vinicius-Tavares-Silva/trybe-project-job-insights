@@ -190,4 +190,15 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    def validate_values(job):
+        min = job['min_salary']
+        max = job['max_salary']
+        if type(salary) != int or type(min) != int or type(max) != int:
+            return False
+        if min <= salary <= max:
+            return job
+
+    filtred_jobs = list(
+        filter(validate_values, jobs)
+    )
+    return filtred_jobs
